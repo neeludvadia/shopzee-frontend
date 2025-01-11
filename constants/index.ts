@@ -1,4 +1,4 @@
-const headerData = [
+export const headerData = [
   {title:"Home", href:"/"},
   {title:"Men", href:"/men"},
   {title:"Woman", href:"/woman"},
