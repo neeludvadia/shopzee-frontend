@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { ReactNode } from "react"
 
 interface Props{
@@ -7,7 +8,7 @@ interface Props{
 
 const Title = ({children,className}:Props) => {
   return (
-    <h2>{children}</h2>
+    <h2 className={cn('text-2xl font-semibold', className)}>{children}</h2>
   )
 }
 

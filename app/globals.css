@@ -73,3 +73,13 @@ body {
     @apply transition-all ease-in-out duration-200 cursor-pointer;
   }
 }
+
+
+/* our custom font setup */
+:root{
+  --font-raleway:'raleway', sans serif;
+}
+
+body {
+  font-family:var(--font-raleway)
+}

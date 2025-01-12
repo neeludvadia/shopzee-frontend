@@ -1,11 +1,21 @@
+"use client"
 import { AlignLeft } from 'lucide-react';
-import React from 'react';
+import React, { useState } from 'react';
+import Sidebar from './Sidebar';
 
 const MobileMenu = () => {
+  const [isSidebarOpen,setIsSidebarOpen] = useState(false);
   return (
-    <div>
+    <>
+    <button onClick={()=>{setIsSidebarOpen(!isSidebarOpen)}}>
       <AlignLeft className='hover:text-darkColor hoverEffect md:hidden'/>
+    </button>{
+      isSidebarOpen && 
+    <div className='md:hidden'>
+      <Sidebar isOpen = {isSidebarOpen} onClose={()=>{setIsSidebarOpen(false)}}/>
     </div>
+    }
+    </>
   );
 }
 
