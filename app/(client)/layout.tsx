@@ -21,15 +21,13 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-    <html lang="en">
-      <body
+      <div
         className={` ${raleway.variable} antialiased`}
         >
     <Header/>
         {children}
         <Footer/>
-      </body>
-    </html>
+        </div>
         </ClerkProvider>
   );
 }
