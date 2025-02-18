@@ -11,8 +11,9 @@ interface Props {
 const AddToCart = ({ product, className }: Props) => {
   const isOutOfStock = product?.Stock === 0;
   const itemsCount = 0;
+  console.log(product?.ProductPrice,"--------------")
   return (
-    <div>
+    <div className="w-full">
       {itemsCount?<div className="w-full text-sm"> 
         <div className="flex justify-between p-1">
           <span className="text-xs text-muted-foreground">Quantity</span>

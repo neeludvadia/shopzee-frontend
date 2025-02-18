@@ -41,7 +41,7 @@ export const fetchProductsById = async (id:Number)=>{
     )
     if(response.ok){
       const data = await response.json()
-      return data;
+      return data.message;
     }else{
       console.log(await response.json());
     }
