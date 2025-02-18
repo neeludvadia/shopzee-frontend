@@ -26,3 +26,29 @@ export const fetchProducts = async (setIsLoading:(value:boolean)=>void , selecte
     
   }
 }
+
+
+
+export const fetchProductsById = async (id:Number)=>{
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}api/productsId?Id=${id}`,
+      {
+        headers:{
+          "Content-Type":'application/json'
+        },
+         method:'get',
+      }
+    )
+    if(response.ok){
+      const data = await response.json()
+      return data;
+    }else{
+      console.log(await response.json());
+    }
+    
+  } catch (error) {
+    console.error(error);
+  } finally {
+    
+  }
+}

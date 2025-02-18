@@ -10,11 +10,11 @@ interface Props {
 function QuantityButton({ product, className }: Props) {
   const itemCount = 0;
   return (
-    <div className={cn( `flex items-center gap-1 text-base`,className)}>
+    <div className={cn( `flex items-center gap-1 text-base pb-1`,className)}>
       <Button variant={"outline"} size={"icon"} className="w-6 h-6">
         <Minus />
       </Button>
-      <span className="font-semibold w-8 text-center etxt-darkColor pb-1">{itemCount}</span>
+      <span className="font-semibold w-8 text-center text-darkColor pb-1">{itemCount}</span>
       <Button variant={"outline"} size={"icon"} className="w-6 h-6"><Plus/></Button>
     </div>
   );

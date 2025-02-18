@@ -15,7 +15,7 @@ const AddToCart = ({ product, className }: Props) => {
     <div>
       {itemsCount?<div className="w-full text-sm"> 
         <div className="flex justify-between p-1">
-          <span>Quantity</span>
+          <span className="text-xs text-muted-foreground">Quantity</span>
           <QuantityButton product={product}/>
         </div>
         <div className="flex items-center justify-center border-t pt-1">

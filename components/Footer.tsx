@@ -5,6 +5,8 @@ import FooterTop from './FooterTop';
 import Logo from './Logo';
 import SocialMedia from './SocialMedia';
 import { Input } from './ui/input';
+import { categoriesData, quickLinksData } from '@/constants';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -21,13 +23,22 @@ const Footer = () => {
         tooltipClassName='bg-darkColor text-white'/>
           </div>
         <div>
-
+        <h3 className='font-semibold text-darkColor mb-4'>Quick Links</h3>
+        <div className='flex flex-col gap-3'>
+          {quickLinksData?.map((item,index)=>(
+            <Link className='text-gray-600 hover:text=darkColor text-sm font-medium hoverEffect'
+             href={item.href} key={item.title}>{item.title}</Link>
+          ))}
+        </div>
         </div>
         <div>
-
+        <h3 className='font-semibold text-darkColor mb-4'>Categories</h3>
+        <div className='flex flex-col gap-3'>
+          {categoriesData?.map((item,index)=>(
+            <Link className='text-gray-600 hover:text=darkColor text-sm font-medium hoverEffect'
+             href={`/category${item.href}`} key={item.title}>{item.title}</Link>
+          ))}
         </div>
-        <div>
-
         </div>
         <div>
         <h3 className='font-semibold text-darkColor mb-4'>Newsletter</h3>
