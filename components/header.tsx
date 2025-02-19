@@ -9,10 +9,17 @@ import { currentUser } from '@clerk/nextjs/server';
 import { ClerkLoaded, SignedIn, SignInButton, UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
 import { ListOrdered } from 'lucide-react';
+import { userAuthenticate } from '@/app/(client)/utility';
 
 const Header = async() => {
   const user = await currentUser();
-  console.log(user,"this is cleark user")
+  let authenticate;
+  // if(user){
+    authenticate = await userAuthenticate(user);
+    if(authenticate){
+      console.log("working properly")
+    }
+  // }
   return (
     <div className='border-b border-b-gray-400 py-5 '>
       <Container className='flex items-center justify-between gap-7 text-lightColor'>

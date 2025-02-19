@@ -52,3 +52,28 @@ export const fetchProductsById = async (id:Number)=>{
     
   }
 }
+
+export const userAuthenticate = async (user:any)=>{
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}api/login`,
+      {
+        headers:{
+          "Content-Type":'application/json'
+        },
+         method:'POST',
+         body:JSON.stringify(user)
+      }
+    )
+    if(response.ok){
+      const data = await response.json()
+      return data;
+    }else{
+      console.log(await response.json());
+    }
+    
+  } catch (error) {
+    console.error(error);
+  } finally {
+    
+  }
+}
