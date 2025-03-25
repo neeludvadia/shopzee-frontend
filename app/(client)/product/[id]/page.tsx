@@ -4,7 +4,7 @@ import Container from '@/components/Container';
 import ImageView from '@/components/ImageView';
 import PriceView from '@/components/PriceView';
 import AddToCart from '@/components/AddToCart';
-import { BoxIcon, Heart } from 'lucide-react';
+import { BoxIcon, Currency, CurrencyIcon, FileQuestion, Heart, ListOrderedIcon, Share } from 'lucide-react';
 import Productcharacteristics from '@/components/Productcharacteristics';
 
 const SingleProductPage = async({params}:{params:Promise<{id:number}>}) => {
@@ -48,18 +48,30 @@ const SingleProductPage = async({params}:{params:Promise<{id:number}>}) => {
             <p>Compare color</p>
           </div>
           <div className='flex items-center gap-2 text-sm text-black hover:text-red-600 hoverEffect'>
-            <BoxIcon/>
-            <p>Compare color</p>
+            <FileQuestion/>
+            <p>Ask A Question</p>
           </div>
           <div className='flex items-center gap-2 text-sm text-black hover:text-red-600 hoverEffect'>
-            <BoxIcon/>
-            <p>Compare color</p>
+            <ListOrderedIcon/>
+            <p>Delivery & Return</p>
           </div>
           <div className='flex items-center gap-2 text-sm text-black hover:text-red-600 hoverEffect'>
-            <BoxIcon/>
-            <p>Compare color</p>
+            <Share/>
+            <p>Share</p>
           </div>
         </div>
+        <div className='flex flex-wrap items-center gap-5'>
+          <div className='border border-darkBlue/20 text-center p-3 hover:border-darkBlue rounded-md hoverEffect'>
+            <p className='text-base font-semibold text-darkColor'>Free shipping</p>
+            <p className='text-sm text-gray-500'>Free shipping over order $1000</p>
+          </div>
+          <div className='border border-darkBlue/20 text-center p-3 hover:border-darkBlue rounded-md hoverEffect'>
+            <p className='text-base font-semibold text-darkColor'>Flexible Payment</p>
+            <p className='text-sm text-gray-500'>Pay with Multiple Credit Cards</p>
+          </div>
+        </div>
+        
+        
       </div>
     </Container>
   );

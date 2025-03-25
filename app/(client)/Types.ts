@@ -1,5 +1,5 @@
 export type Product = {
-  ProductId: number;
+  ProductId: number | string;
   categoryId: number;
   ProductTypeId: number;
   name: string;
@@ -12,4 +12,6 @@ export type Product = {
   imageName: string[];
   imageUrl: string[];
   isDeleted: boolean;
+  category:string;
+  ProductType:string
 };
