@@ -1,9 +1,10 @@
+"use client"
 import { Product } from "@/app/(client)/Types";
 import { Minus, Plus } from "lucide-react";
 import React from "react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
-import useCartStore from "@/app/(client)/(user)/faqs/store";
+import useCartStore from "@/app/(client)/store";
 import toast from "react-hot-toast";
 interface Props {
   product: Product;

@@ -1,10 +1,11 @@
-import React from "react";
+"use client"
+import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { Product } from "@/app/(client)/Types";
 import QuantityButton from "./QuantityButton";
 import PriceFormatter from "./PriceFormatter";
-import useCartStore from "@/app/(client)/(user)/faqs/store";
+import useCartStore from "@/app/(client)/store";
 import toast from "react-hot-toast";
 interface Props {
   product: Product;
@@ -14,6 +15,14 @@ const AddToCart = ({ product, className }: Props) => {
   const {addItem, getItemCount} = useCartStore();
   const itemsCount = getItemCount(product?.ProductId as string)
   const isOutOfStock = product?.Stock === 0;
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) return null; // or a loading spinner
+
   return (
     <div className="w-full h-12 flex items-center">
       {itemsCount?<div className="w-full text-sm"> 

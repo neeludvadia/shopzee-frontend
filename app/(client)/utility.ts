@@ -53,6 +53,55 @@ export const fetchProductsById = async (id:Number)=>{
   }
 }
 
+export const fetchProductsByCategory = async (category:string)=>{
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}api/productCategory?Id=${category}`,
+      {
+        headers:{
+          "Content-Type":'application/json'
+        },
+         method:'get',
+      }
+    )
+    if(response.ok){
+      const data = await response.json()
+      return data.data;
+    }else{
+      console.log(await response.json());
+    }
+    
+  } catch (error) {
+    console.error(error);
+  } finally {
+    
+  }
+}
+
+
+export const fetchAllCategories = async ()=>{
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}api/AllCategories`,
+      {
+        headers:{
+          "Content-Type":'application/json'
+        },
+         method:'get',
+      }
+    )
+    if(response.ok){
+      const data = await response.json()
+      return data.data;
+    }else{
+      console.log(await response.json());
+    }
+    
+  } catch (error) {
+    console.error(error);
+  } finally {
+    
+  }
+}
+
 export const userAuthenticate = async (user:any)=>{
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}api/login`,

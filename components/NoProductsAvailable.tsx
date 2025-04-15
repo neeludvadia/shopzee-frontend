@@ -3,7 +3,7 @@ import {motion} from 'motion/react'
 import { cn } from '@/lib/utils';
 import { Loader2 } from 'lucide-react';
 type Props = {
-  selectedTab:number
+  selectedTab:number | string
   className?:string
 }
 const NoProductsAvailable = ({...Props}:Props) => {

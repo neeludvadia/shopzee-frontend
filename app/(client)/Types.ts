@@ -15,3 +15,12 @@ export type Product = {
   category:string;
   ProductType:string
 };
+
+export type CategoriesData = {
+  CategoryId:number,
+  title:string,
+  description:string,
+  imageName:string,
+  imageUrl:string,
+  isDeleted:boolean
+}
