@@ -15,10 +15,8 @@ interface Props {
 const CategoryProducts = ({category,id}:Props) => {
   const [currentCategory,setCurrentCategory] = useState(id);
   const [product,setProduct] = useState<Product[]>([]);
-  const [loading,setLoading] = useState(false);
 
   const fetchProduct  = async ()=>{
-    setLoading(true);
     try {
       const product = await fetchProductsByCategory(currentCategory);
       if(product){
@@ -29,7 +27,6 @@ const CategoryProducts = ({category,id}:Props) => {
     } catch (error) {
       console.error(error);
     } finally {
-      setLoading(false);
     }
   }
 
@@ -40,7 +37,7 @@ const CategoryProducts = ({category,id}:Props) => {
   return (
     <div className='py-5 flex flex-col md:flex-row items-start gap-5'>
       <div className='flex flex-col md:min-w-40 border'>
-        {category?.map((item,index)=>{
+        {category?.map((item)=>{
           return (
             <Button key={item?.CategoryId}
             onClick={()=>{setCurrentCategory(item?.title as string);}}

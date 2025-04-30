@@ -19,8 +19,8 @@ export async function GET(req: Request) {
 
         const data = await response.json();
         return NextResponse.json(data);
-    } catch (error: any) {
-        console.error('API Error:', error.message);
-        return NextResponse.json({ error: error.message || 'Something went wrong' }, { status: 500 });
+    } catch (error) {
+        // console.error('API Error:', error.message);
+        return NextResponse.json({ error: (error as Error) || 'Something went wrong' }, { status: 500 });
     }
 }

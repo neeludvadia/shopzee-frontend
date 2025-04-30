@@ -4,7 +4,7 @@ import Container from '@/components/Container';
 import ImageView from '@/components/ImageView';
 import PriceView from '@/components/PriceView';
 import AddToCart from '@/components/AddToCart';
-import { BoxIcon, Currency, CurrencyIcon, FileQuestion, Heart, ListOrderedIcon, Share } from 'lucide-react';
+import { BoxIcon, FileQuestion, Heart, ListOrderedIcon, Share } from 'lucide-react';
 import Productcharacteristics from '@/components/Productcharacteristics';
 
 const SingleProductPage = async({params}:{params:Promise<{id:number}>}) => {

@@ -2,7 +2,6 @@ import React from 'react';
 import {motion} from 'motion/react'
 import Logo from './Logo';
 import { X } from 'lucide-react';
-import { Button } from './ui/button';
 import { headerData } from '@/constants';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -34,7 +33,7 @@ const Sidebar = ({isOpen, onClose}:SidebarProps) => {
         </div>
         <div className='flex flex-col gap-3.5 text-base font-semibold tracking-wide'>
       {
-        headerData?.map((item,index)=>(
+        headerData?.map((item)=>(
             <Link key={item?.title} href={item?.href} onClick={()=>{onClose()}}
             className={`hover:text-white hoverEffect w-28 ${pathname == item?.href && "text-white"}`}
             >{item?.title}
@@ -50,7 +49,4 @@ const Sidebar = ({isOpen, onClose}:SidebarProps) => {
 }
 
 export default Sidebar;
-function useOutsideCick() {
-  throw new Error('Function not implemented.');
-}
 

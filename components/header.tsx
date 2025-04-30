@@ -5,15 +5,27 @@ import Container from './Container';
 import MobileMenu from './MobileMenu';
 import SearchBar from './SearchBar';
 import CartIcon from './CartIcon';
-import { currentUser } from '@clerk/nextjs/server';
+import { auth, currentUser } from '@clerk/nextjs/server';
 import { ClerkLoaded, SignedIn, SignInButton, UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
-import { ListOrdered } from 'lucide-react';
-import { fetchAllCategories, userAuthenticate } from '@/app/(client)/utility';
+import { ListOrdered, Loader2 } from 'lucide-react';
+import { fetchAllCategories } from '@/app/(client)/utility';
 
 const Header = async() => {
   const user = await currentUser();
+  const {userId} = await auth();
   const AllCategories = await fetchAllCategories();
+  let orders = null;
+  if(userId){
+    const fetchOrders = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}api/getOrder?userId=${userId}`,{
+      method:"get"
+    });
+    orders = await fetchOrders.json();
+  }
+  if(!userId){
+    console.log("inside loading")
+    return <Loader2></Loader2>
+  }
   return (
     <div className='border-b border-b-gray-400 py-5 sticky top-0 z-50 bg-white'>
       <Container className='flex items-center justify-between gap-7 text-lightColor'>
@@ -29,7 +41,7 @@ const Header = async() => {
         <SignedIn>  {/* already signed in so show that users orders ans another button for user profile*/}
         <Link href={"/orders"} className='group relative'>
     <ListOrdered className='w-5 h-5 group-hover:text-darkColor hoverEffect'/>
-    <span className='absolute -top-1 -right-1 bg-darkColor text-white h-3.5 w-3.5 rounded-full text-xs font-semibold flex items-center justify-center'>0</span>
+    <span className='absolute -top-1 -right-1 bg-darkColor text-white h-3.5 w-3.5 rounded-full text-xs font-semibold flex items-center justify-center'>{orders?.data?.length ? orders?.data?.length : 0}</span>
     </Link>
     <UserButton></UserButton>
         </SignedIn>

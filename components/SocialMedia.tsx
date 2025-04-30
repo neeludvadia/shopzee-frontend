@@ -1,4 +1,3 @@
-import React, { ReactNode } from 'react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 import { Facebook, Github, Linkedin, Slack, Youtube } from 'lucide-react';
 import Link from 'next/link';
@@ -38,7 +37,7 @@ const SocialMedia = ({className,iconClassName,tooltipClassName}:Props) => {
     <TooltipProvider>
       <div className={cn('flex items-center gap-3.5',className)}>
         {
-          socialLink?.map((items,index)=>(
+          socialLink?.map((items)=>(
         <Tooltip key={items?.title}>
           <TooltipTrigger asChild>
             <Link href={items?.href} 

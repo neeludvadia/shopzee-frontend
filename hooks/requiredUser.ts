@@ -6,4 +6,5 @@ export const requireUser = async ()=>{
   if(!user){
     return redirect("/")
   }
+  return user;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from './ui/card';
 import Logo from './Logo';
-import { SignInButton, SignUp, SignUpButton } from '@clerk/nextjs';
+import { SignInButton, SignUpButton } from '@clerk/nextjs';
 import { Button } from './ui/button';
 
 const NoAccessToCart = () => {

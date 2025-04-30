@@ -101,7 +101,7 @@ const SearchBar = () => {
                 Searching in progress....
               </p>
             ) : products?.length ? (
-              products?.map((item, index) => {
+              products?.map((item) => {
                 return (
                   <div key={item?.ProductId} className="bg-white overflow-hidden border-b last:border-b-0">
                     <div className="flex items-center p-1">

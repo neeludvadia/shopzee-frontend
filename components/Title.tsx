@@ -3,7 +3,7 @@ import { ReactNode } from "react"
 
 interface Props{
     children:ReactNode;
-    className?:String
+    className?:string
 }
 
 const Title = ({children,className}:Props) => {

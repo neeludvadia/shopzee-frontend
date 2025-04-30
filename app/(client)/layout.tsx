@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import {ClerkProvider} from '@clerk/nextjs'
 import localFont from 'next/font/local'
 import {Toaster} from 'react-hot-toast'
+import { Suspense } from "react";
 const raleway = localFont({
   src:'../fonts/raleway_font.woff2',
   variable: '--font-raleway',
@@ -22,6 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
+      <Suspense>
       <div
         className={` ${raleway.variable} antialiased`}
         >
@@ -35,6 +37,7 @@ export default function RootLayout({
           }
         }}/>
         </div>
+        </Suspense>
         </ClerkProvider>
   );
 }

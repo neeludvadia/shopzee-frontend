@@ -1,4 +1,4 @@
-export const fetchProducts = async (setIsLoading:(value:boolean)=>void , selectedTab:Number)=>{
+export const fetchProducts = async (setIsLoading:(value:boolean)=>void , selectedTab:number)=>{
   setIsLoading(true);
   try {
     const response = await fetch(`/api/fetchProducts`,
@@ -29,7 +29,7 @@ export const fetchProducts = async (setIsLoading:(value:boolean)=>void , selecte
 
 
 
-export const fetchProductsById = async (id:Number)=>{
+export const fetchProductsById = async (id:number)=>{
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}api/productsId?Id=${id}`,
       {
@@ -102,7 +102,7 @@ export const fetchAllCategories = async ()=>{
   }
 }
 
-export const userAuthenticate = async (user:any)=>{
+export const userAuthenticate = async (user:ClerkAuthorization)=>{
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}api/login`,
       {

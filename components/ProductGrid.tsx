@@ -14,7 +14,7 @@ const ProductGrid = () => {
     productType[0]?.value || 0
   );
   const [products, setProducts] = useState<Product[]>();
-  const [isLoading, setIsLoading] = useState<Boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const fetchproduct = async () => {
     const data = await fetchProducts(setIsLoading, selectedTab);

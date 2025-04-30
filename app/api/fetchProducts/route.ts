@@ -1,10 +1,10 @@
 import { NextResponse} from 'next/server';
 
-export async function POST(req: Request) {
+export async function POST(req: Request):Promise<NextResponse> {
     try {
         const body = await req.json();
         const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}api/products`, {
-            method: 'POST',
+            method: "post",
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -19,7 +19,7 @@ export async function POST(req: Request) {
 
         const Response = await response.json();
         return NextResponse.json(Response);
-    } catch (error: any) {
-        return NextResponse.json({ error: error.message || 'Something went wrong' }).status;
+    } catch (error) {
+        return NextResponse.json({ error: (error as Error)?.message || 'Something went wrong' }, { status: 500 });
     }
 }

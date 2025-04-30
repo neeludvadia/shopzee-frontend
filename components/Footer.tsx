@@ -25,7 +25,7 @@ const Footer = () => {
         <div>
         <h3 className='font-semibold text-darkColor mb-4'>Quick Links</h3>
         <div className='flex flex-col gap-3'>
-          {quickLinksData?.map((item,index)=>(
+          {quickLinksData?.map((item)=>(
             <Link className='text-gray-600 hover:text=darkColor text-sm font-medium hoverEffect'
              href={item.href} key={item.title}>{item.title}</Link>
           ))}
@@ -34,7 +34,7 @@ const Footer = () => {
         <div>
         <h3 className='font-semibold text-darkColor mb-4'>Categories</h3>
         <div className='flex flex-col gap-3'>
-          {categoriesData?.map((item,index)=>(
+          {categoriesData?.map((item)=>(
             <Link className='text-gray-600 hover:text=darkColor text-sm font-medium hoverEffect'
              href={`/category${item.href}`} key={item.title}>{item.title}</Link>
           ))}
