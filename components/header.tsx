@@ -22,10 +22,6 @@ const Header = async() => {
     });
     orders = await fetchOrders.json();
   }
-  if(!userId){
-    console.log("inside loading")
-    return <Loader2></Loader2>
-  }
   return (
     <div className='border-b border-b-gray-400 py-5 sticky top-0 z-50 bg-white'>
       <Container className='flex items-center justify-between gap-7 text-lightColor'>
